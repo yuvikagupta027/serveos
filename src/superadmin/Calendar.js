@@ -32,7 +32,7 @@ export default function Calendar() {
     function fetchAllDates() {
         let bookingMap = {};
 
-        axios.post("http://localhost:1000/get-bookings")
+        axios.post("https://serveos-1.onrender.com/get-bookings")
             .then((res) => {
                 res.data.forEach((row) => {
                     let start = new Date(row.checkIn);
@@ -47,7 +47,7 @@ export default function Calendar() {
                         start.setDate(start.getDate() + 1);
                     }
                 });
-                axios.post("http://localhost:1000/get-blocked-dates")
+                axios.post("https://serveos-1.onrender.com/get-blocked-dates")
                     .then((res2) => {
                         res2.data.forEach((d) => {
                             bookingMap[d.date] = {
@@ -67,7 +67,7 @@ export default function Calendar() {
 
     function unblockDate(day) {
         const key = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`;
-        axios.post("http://localhost:1000/unblock-date", { date: key })
+        axios.post("https://serveos-1.onrender.com/unblock-date", { date: key })
             .then(() => {
                 alert("Date Unblocked");
                 fetchAllDates();
@@ -89,7 +89,7 @@ export default function Calendar() {
 
     function blockDate(day) {
         const key = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`;
-        axios.post("http://localhost:1000/block-date", { date: key })
+        axios.post("https://serveos-1.onrender.com/block-date", { date: key })
             .then(() => {
                 alert("Date Blocked");
                 fetchAllDates();

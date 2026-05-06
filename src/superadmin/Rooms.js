@@ -27,7 +27,7 @@ export default function Rooms() {
             jacuzzi: data.get("jacuzzi") ? true : false,
         };
 
-        axios.post("http://localhost:1000/addroom", {
+        axios.post("https://serveos-1.onrender.com/addroom", {
             Name: name,
             Price: Number(price),
             Capacity: Number(capacity),
@@ -44,7 +44,7 @@ export default function Rooms() {
     const [rooms, setrooms] = useState([]);
 
     function fetchrooms() {
-        axios.post("http://localhost:1000/fetchrooms").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchrooms").then((succ) => {
             setrooms(succ.data)
         })
     }
@@ -54,7 +54,7 @@ export default function Rooms() {
     }, [])
 
     function deletee(x) {
-        axios.post("http://localhost:1000/deleteroom", {
+        axios.post("https://serveos-1.onrender.com/deleteroom", {
             Id: x,
         }).then((succ) => {
             if (succ.data === "ok") {
@@ -73,7 +73,7 @@ export default function Rooms() {
             Amenities: editData.Amenities
         };
 
-        axios.post("http://localhost:1000/updateroom", {
+        axios.post("https://serveos-1.onrender.com/updateroom", {
             Id: editId,
             ...updated
         }).then(() => {

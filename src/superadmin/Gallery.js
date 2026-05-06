@@ -12,7 +12,7 @@ export default function Gallery() {
         var image = data.get("image");
         var name = data.get("name");
 
-        axios.post("http://localhost:1000/addimage", {
+        axios.post("https://serveos-1.onrender.com/addimage", {
             Image: image,
             Name: name,
         }).then((succ) => {
@@ -25,7 +25,7 @@ export default function Gallery() {
     const [img, setimg] = useState([]);
 
     function fetchimages() {
-        axios.post("http://localhost:1000/fetchimage").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchimage").then((succ) => {
             setimg(succ.data)
         })
     }
@@ -35,7 +35,7 @@ export default function Gallery() {
     }, [])
 
     function deletee(x) {
-        axios.post("http://localhost:1000/deleteimage", {
+        axios.post("https://serveos-1.onrender.com/deleteimage", {
             Id: x,
         }).then((succ) => {
             if (succ.data === "ok") {

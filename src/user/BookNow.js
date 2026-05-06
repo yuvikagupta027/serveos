@@ -28,7 +28,7 @@ export default function BookNow() {
     });
 
     function fetchimages() {
-        axios.post("http://localhost:1000/fetchimage").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchimage").then((succ) => {
             setimg(succ.data)
         })
     }
@@ -65,7 +65,7 @@ export default function BookNow() {
     }
 
     function fetchRooms() {
-        axios.post("http://localhost:1000/fetchrooms")
+        axios.post("https://serveos-1.onrender.com/fetchrooms")
             .then((res) => {
                 setRooms(res.data);
             })
@@ -81,7 +81,7 @@ export default function BookNow() {
             alert("Select dates first");
             return;
         }
-        axios.post("http://localhost:1000/check-availability", dates)
+        axios.post("https://serveos-1.onrender.com/check-availability", dates)
             .then((res) => {
                 if (res.data.length === 0) {
                     alert("No rooms available");
@@ -96,7 +96,7 @@ export default function BookNow() {
 
     function bookRoom(roomId, roomName) {
 
-        axios.post("http://localhost:1000/book-room", {
+        axios.post("https://serveos-1.onrender.com/book-room", {
             roomId: roomId,
             roomName: roomName,
             checkIn: dates.checkin,
@@ -223,7 +223,7 @@ export default function BookNow() {
                     <div className={`step-box mt-3 ${step >= 2 ? "active" : "disabled"}`}>
                         <h5>🛏️ Choose Your Room</h5>
                         <div className="d-flex flex-wrap align-items-start justify-content-center gap-3">
-                            <div className="col-lg-10 col-12">
+                            <div className="col-12">
                                 {availableRooms.map((room, index) => (
                                     <div key={index} className="card shadow-sm mb-4 p-3 border-0 rounded-4">
                                         <div className="row g-3 align-items-center">
@@ -293,7 +293,7 @@ export default function BookNow() {
                                     </div>
                                 ))}
                             </div>
-                            <div className="col-lg-2 col-12">
+                            <div className="col-lg-12 col-12">
                                 {selectedRooms.length > 0 && (
                                     <div className="card p-3">
                                         <h5>Selected Room</h5>
@@ -370,7 +370,7 @@ export default function BookNow() {
                                                 return;
                                             }
                                             selectedRooms.forEach(r => {
-                                                axios.post("http://localhost:1000/book-room", {
+                                                axios.post("https://serveos-1.onrender.com/book-room", {
                                                     roomId: r._id,
                                                     roomName: r.Name,
                                                     checkIn: dates.checkin,

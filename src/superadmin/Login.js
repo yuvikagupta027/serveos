@@ -15,7 +15,7 @@ export default function Login() {
         var email = data.get("email");
         var pass = data.get("pass");
 
-        axios.post("http://localhost:1000/registerform", {
+        axios.post("https://serveos-1.onrender.com/registerform", {
             Name: name,
             Contact: contact,
             Email: email,
@@ -34,7 +34,7 @@ export default function Login() {
         var email2 = data.get("email2");
         var pass2 = data.get("pass2");
 
-        axios.post("http://localhost:1000/loginform", {
+        axios.post("https://serveos-1.onrender.com/loginform", {
             Email: email2,
             Pass: pass2,
         }).then((succ) => {
@@ -53,7 +53,7 @@ export default function Login() {
         console.log(id);
 
         if (id) {
-            axios.post("http://localhost:1000/logincheck", { Id: id }).then((succ) => {
+            axios.post("https://serveos-1.onrender.com/logincheck", { Id: id }).then((succ) => {
                 if (succ.data) {
                     navi("/superadmin/Dashboard")
                 }

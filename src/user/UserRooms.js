@@ -10,7 +10,7 @@ export default function UserRooms() {
     const [rooms, setrooms] = useState([]);
 
     function fetchrooms() {
-        axios.post("http://localhost:1000/fetchrooms").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchrooms").then((succ) => {
             setrooms(succ.data)
         })
     }

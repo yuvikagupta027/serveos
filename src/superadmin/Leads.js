@@ -9,7 +9,7 @@ export default function Leads() {
     const [leadss, setLeadss] = useState([]);
 
     function fetchleadss() {
-        axios.post("http://localhost:1000/fetchform").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchform").then((succ) => {
             setLeadss(succ.data)
         })
     }
@@ -19,7 +19,7 @@ export default function Leads() {
     }, [])
 
     function updateStatus(id, newStatus) {
-        axios.post("http://localhost:1000/update-lead-status", {
+        axios.post("https://serveos-1.onrender.com/update-lead-status", {
             Id: id,
             Status: newStatus
         })
@@ -30,7 +30,7 @@ export default function Leads() {
     }
 
     function deletee(x) {
-        axios.post("http://localhost:1000/deleteform", {
+        axios.post("https://serveos-1.onrender.com/deleteform", {
             Id: x,
         }).then((succ) => {
             if (succ.data == "ok") {

@@ -26,7 +26,7 @@ export default function Contact() {
         var currentDate = new Date().toISOString().split("T")[0];
         var status = "New";
 
-        axios.post("http://localhost:1000/submitformcontact", {
+        axios.post("https://serveos-1.onrender.com/submitformcontact", {
             Name: name,
             Email: email,
             Message: message,
@@ -50,9 +50,9 @@ export default function Contact() {
                         We'd love to hear from you. Get in touch with our team.
                     </p>
                 </div>
-                <div className="d-flex flex-wrap gap-2 align-items-center">
+                <div className="row align-items-center">
                     {contactData.map((item, index) => (
-                        <div key={index} className="col-lg-4 col-md-6 col-12">
+                        <div key={index} className="col-lg-4 col-md-6 col-12 mb-2">
                             <div className="contact-card h-100">
                                 <div className="contact-icon">
                                     {item.icon}

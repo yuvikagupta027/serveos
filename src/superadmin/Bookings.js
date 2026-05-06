@@ -10,7 +10,7 @@ export default function Bookings() {
     const [bookings, setBookings] = useState([]);
 
     function fetchbookings() {
-        axios.post("http://localhost:1000/fetchbookingss")
+        axios.post("https://serveos-1.onrender.com/fetchbookingss")
             .then((res) => {
                 setBookings(res.data);
             })
@@ -22,7 +22,7 @@ export default function Bookings() {
     }, []);
 
     function deletee(x) {
-        axios.post("http://localhost:1000/deletebookingss", {
+        axios.post("https://serveos-1.onrender.com/deletebookingss", {
             Id: x,
         }).then((succ) => {
             if (succ.data === "ok") {

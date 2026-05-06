@@ -10,7 +10,7 @@ export default function UserGallery() {
     const [img, setimg] = useState([]);
 
     function fetchimages() {
-        axios.post("http://localhost:1000/fetchimage").then((succ) => {
+        axios.post("https://serveos-1.onrender.com/fetchimage").then((succ) => {
             setimg(succ.data)
         })
     }
